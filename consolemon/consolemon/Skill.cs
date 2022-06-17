@@ -9,8 +9,25 @@ namespace consolemon
     class Skill
     {
       int damage = 60;
-      int energyCost = 15;
+      int EnergyCost = 15;
       int accuracy = 100;  
       string name = "dragon breath";
+      elements element;
+
+
+
+        internal void UseOn(Consolemon target, Consolemon caster)
+        {
+            caster.DepleteEnergy(EnergyCost);
+            target.TakeDamage(damage);
+        }
+
+    }
+    enum elements
+    {
+        steel,
+        fire,
+        ground,
+        dragon
     }
 }
