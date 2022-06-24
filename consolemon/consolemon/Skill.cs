@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace consolemon
 {
-    class Skill
+    internal class Skill
     {
-      int damage = 60;
+      int Damage = 60;
       int EnergyCost = 15;
-      int accuracy = 100;  
+      int Accuracy = 100;  
       string name = "dragon breath";
       elements element;
 
@@ -19,9 +19,18 @@ namespace consolemon
         internal void UseOn(Consolemon target, Consolemon caster)
         {
             caster.DepleteEnergy(EnergyCost);
-            target.TakeDamage(damage);
+            target.TakeDamage(Damage);
         }
+        internal Skill()
+        {
 
+        }
+        internal Skill(Skill copyFrom)
+        {
+            this.Damage = copyFrom.Damage;
+            this.EnergyCost = copyFrom.EnergyCost;
+            this.name = copyFrom.name;
+        }
     }
     enum elements
     {
